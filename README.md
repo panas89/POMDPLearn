@@ -23,22 +23,10 @@ pip install oct2py
 
 ```
 sudo apt install liboctave-dev
-```
-
-```
 cd ~/POMDPLearn/BNT/BNT/potentials/Tables/
-```
-
-```
 mkoctfile -mex marg_table.c
-
-```
-```
 mkoctfile -mex mult_by_table.c
-```
-
-```
-mkoctfile -mex divide_by_table.mex
+mkoctfile -mex divide_by_table.c
 ```
 
 ## Dependencies
