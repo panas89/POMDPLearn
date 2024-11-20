@@ -11,11 +11,44 @@ More information on what are [POMDPs](http://www.pomdp.org/) and [MDPs](https://
 - Install octave from ubuntuSoftware
 - Intall oct2py python module using pip
 
+
+# use ubuntu 18.04
+
+1. use docker 
 ```
-pip install oct2py
+sudo apt update
+sudo apt install docker.io
+docker run -it --name my-ubuntu-container ubuntu:18.04 bash
+```
+--name my-ubuntu-container: Assigns a name to the container (my-ubuntu-container) for easier management later.
+No --rm: Ensures the container persists after you exit.
+
+2. Inside the container, install Octave 4.2.2:
+
+```
+apt update
+apt install octave=4.2.2-1ubuntu1
+octave --version
 ```
 
-- BNT library uses mex (source wikipedia:A MEX file is a type of computer file that provides an interface between MATLAB or Octave and functions written in C, C++ or Fortran. It stands for "MATLAB executable".)
+3. Use miniconda
+
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh -b -p ~/miniconda3_portable
+rm Miniconda3-latest-Linux-x86_64.sh
+~/miniconda3/bin/conda init
+source ~/.bashrc
+conda activate
+```
+
+4. Create conda env
+
+```
+conda create --name POMDPLearn python=3.7.3
+```
+
+5. BNT library uses mex (source wikipedia:A MEX file is a type of computer file that provides an interface between MATLAB or Octave and functions written in C, C++ or Fortran. It stands for "MATLAB executable".)
 
 - On bash select files to mex certain .c files
 
@@ -31,15 +64,10 @@ mkoctfile -mex divide_by_table.c
 
 ## Dependencies
 
+
+
 ```
-import sys
-from tqdm import tqdm
-from scipy.optimize import linprog
-import numpy as np
-from itertools import product
-from tqdm import tqdm_notebook
-import pandas as pd
-import numpy as np
+pip install -r requirements.txt
 ```
 
 # Usage 
