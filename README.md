@@ -1,3 +1,5 @@
+<img src="POMDPLearn.svg" alt="drawing" style="width:200px;"/>
+
 # POMDPLearn
 A library to learn MDP and POMDP models using a single dataset
 
